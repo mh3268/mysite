@@ -1,185 +1,1582 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Zabiha Halal Meat Market</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Al-Barakah Halal Meats – Fresh. Zabiha. Trusted.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── TOKENS ─────────────────────────────────────────── */
+    :root {
+      --forest:   #1E3A2F;   /* deep Islamic green – primary */
+      --sage:     #3D6B55;   /* mid green */
+      --gold:     #C9922A;   /* warm gold accent */
+      --cream:    #F9F4EC;   /* off-white background */
+      --parchment:#EDE5D0;   /* card background */
+      --ink:      #1A1A18;   /* body text */
+      --muted:    #6B6355;   /* secondary text */
+      --white:    #FFFFFF;
 
-<style>
+      --display:  'Playfair Display', serif;
+      --body:     'DM Sans', sans-serif;
+      --arabic:   'Amiri', serif;
+
+      --r-sm: 6px;
+      --r-md: 12px;
+      --r-lg: 20px;
+
+      --shadow-soft: 0 4px 24px rgba(30,58,47,0.10);
+      --shadow-card: 0 2px 12px rgba(30,58,47,0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
     body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        background: #f9f9f9;
-        color: #333;
+      font-family: var(--body);
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.65;
     }
 
-    header {
-        background: #0f3d2e;
-        color: white;
-        padding: 20px;
-        text-align: center;
-    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
 
-    header h1 {
-        margin: 0;
-    }
-
+    /* ── NAV ─────────────────────────────────────────────── */
     nav {
-        background: #145c43;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        padding: 10px;
-        flex-wrap: wrap;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--forest);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw;
+      height: 68px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.25);
     }
 
-    nav a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
     }
 
+    .nav-logo-icon {
+      width: 38px; height: 38px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+
+    .nav-logo-text {
+      font-family: var(--display);
+      font-size: 1.2rem;
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex; gap: 32px; list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--white) !important;
+      padding: 8px 20px;
+      border-radius: var(--r-sm);
+      font-weight: 600 !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.88; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column; gap: 5px; cursor: pointer;
+      background: none; border: none; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--white); border-radius: 2px;
+    }
+
+    /* ── HERO ────────────────────────────────────────────── */
     .hero {
-        background: url('https://images.unsplash.com/photo-1604908176997-125f25cc500f') center/cover;
-        color: white;
-        padding: 80px 20px;
-        text-align: center;
+      margin-top: 68px;
+      min-height: 92vh;
+      background: var(--forest);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 80px 5vw 80px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero h2 {
-        font-size: 36px;
-        margin-bottom: 10px;
+    /* Geometric arabesque pattern overlay */
+    .hero::before {
+      content: '';
+      position: absolute;
+      right: -40px; top: -40px;
+      width: 55%;
+      height: 130%;
+      background: var(--sage);
+      clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
+      opacity: 0.35;
     }
 
-    .section {
-        padding: 40px 20px;
-        max-width: 1000px;
-        margin: auto;
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: 5vw;
+      width: 300px; height: 300px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      opacity: 0.12;
     }
 
-    .products {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
+    .hero-content { position: relative; z-index: 2; }
+
+    .hero-eyebrow {
+      font-family: var(--arabic);
+      font-size: 1.3rem;
+      color: var(--gold);
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
     }
 
-    .card {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        text-align: center;
+    .hero-heading {
+      font-family: var(--display);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      color: var(--white);
+      line-height: 1.12;
+      margin-bottom: 20px;
     }
 
-    .card h3 {
-        margin-top: 0;
-        color: #0f3d2e;
+    .hero-heading em {
+      font-style: normal;
+      color: var(--gold);
     }
 
-    .contact {
-        background: #0f3d2e;
-        color: white;
-        text-align: center;
-        padding: 40px 20px;
+    .hero-sub {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.05rem;
+      max-width: 480px;
+      margin-bottom: 36px;
     }
 
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: var(--r-sm);
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: transform 0.18s, box-shadow 0.18s;
+      cursor: pointer; border: none;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,146,42,0.4);
+    }
+
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.4);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: var(--r-sm);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .hero-visual {
+      position: relative; z-index: 2;
+      display: flex; justify-content: center; align-items: center;
+    }
+
+    .hero-image-container {
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sage) 0%, var(--forest) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 140px;
+      border: 4px solid rgba(201,146,42,0.5);
+      box-shadow: 0 0 80px rgba(201,146,42,0.2);
+      position: relative;
+    }
+
+    .hero-badge {
+      position: absolute;
+      top: 20px; right: -10px;
+      background: var(--gold);
+      color: var(--white);
+      width: 96px; height: 96px;
+      border-radius: 50%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      line-height: 1.35;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 30px; left: -40px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--r-md);
+      padding: 16px 22px;
+      display: flex; gap: 24px;
+      color: var(--white);
+    }
+
+    .stat { text-align: center; }
+    .stat-num { font-family: var(--display); font-size: 1.5rem; font-weight: 700; color: var(--gold); }
+    .stat-label { font-size: 0.7rem; opacity: 0.75; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* ── TRUST BAR ───────────────────────────────────────── */
+    .trust-bar {
+      background: var(--parchment);
+      padding: 22px 5vw;
+      display: flex; align-items: center; justify-content: center;
+      gap: clamp(24px, 4vw, 64px);
+      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(30,58,47,0.12);
+    }
+
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--forest);
+    }
+
+    .trust-icon {
+      width: 36px; height: 36px;
+      background: var(--forest);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    /* ── SECTIONS ─────────────────────────────────────────── */
+    section { padding: 90px 5vw; }
+
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .section-heading {
+      font-family: var(--display);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      color: var(--forest);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      max-width: 600px;
+      font-size: 1rem;
+    }
+
+    .centered { text-align: center; }
+    .centered .section-sub { margin: 0 auto 48px; }
+
+    /* ── PRODUCTS ─────────────────────────────────────────── */
+    .products { background: var(--cream); }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.22s, box-shadow 0.22s;
+      border: 1px solid rgba(30,58,47,0.07);
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .product-img {
+      height: 180px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 72px;
+      position: relative;
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 14px; right: 14px;
+      background: var(--forest);
+      color: var(--white);
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .product-body { padding: 20px 22px 24px; }
+
+    .product-name {
+      font-family: var(--display);
+      font-size: 1.25rem;
+      color: var(--forest);
+      margin-bottom: 6px;
+    }
+
+    .product-desc {
+      color: var(--muted);
+      font-size: 0.87rem;
+      margin-bottom: 16px;
+      line-height: 1.55;
+    }
+
+    .product-cuts {
+      display: flex; flex-wrap: wrap; gap: 6px;
+    }
+
+    .cut-tag {
+      background: var(--parchment);
+      color: var(--forest);
+      font-size: 0.74rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* ── HALAL PROCESS ───────────────────────────────────── */
+    .process { background: var(--forest); }
+
+    .process .section-heading { color: var(--white); }
+    .process .section-sub { color: rgba(255,255,255,0.7); }
+    .process .section-label { color: var(--gold); }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 28px;
+      margin-top: 52px;
+    }
+
+    .process-step {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--r-md);
+      padding: 32px 26px;
+      position: relative;
+    }
+
+    .step-number {
+      font-family: var(--display);
+      font-size: 3rem;
+      color: rgba(201,146,42,0.25);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .step-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+
+    .step-title {
+      font-family: var(--display);
+      font-size: 1.1rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .step-text {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.87rem;
+      line-height: 1.6;
+    }
+
+    /* ── WHY US ───────────────────────────────────────────── */
+    .why { background: var(--parchment); }
+
+    .why-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .why-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .why-card {
+      background: var(--white);
+      border-radius: var(--r-md);
+      padding: 24px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .why-card:first-child {
+      grid-column: span 2;
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .why-card-icon { font-size: 2rem; margin-bottom: 10px; }
+
+    .why-card-title {
+      font-family: var(--display);
+      font-size: 1rem;
+      color: var(--forest);
+      margin-bottom: 6px;
+    }
+
+    .why-card:first-child .why-card-title { color: var(--white); }
+
+    .why-card-text {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .why-card:first-child .why-card-text { color: rgba(255,255,255,0.72); }
+
+    .why-list {
+      list-style: none;
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .why-list li {
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+
+    .why-check {
+      width: 26px; height: 26px; flex-shrink: 0;
+      background: var(--forest);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white);
+      font-size: 13px;
+      margin-top: 1px;
+    }
+
+    .why-list-text strong { color: var(--forest); font-weight: 600; display: block; }
+    .why-list-text span { color: var(--muted); font-size: 0.87rem; }
+
+    /* ── TESTIMONIALS ─────────────────────────────────────── */
+    .testimonials { background: var(--cream); }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: var(--r-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      font-family: var(--display);
+      font-size: 5rem;
+      color: var(--gold);
+      opacity: 0.2;
+      position: absolute;
+      top: 8px; left: 18px;
+      line-height: 1;
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .testimonial-text {
+      color: var(--ink);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      position: relative; z-index: 1;
+    }
+
+    .testimonial-author {
+      display: flex; align-items: center; gap: 12px;
+    }
+
+    .author-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: var(--parchment);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      border: 2px solid var(--parchment);
+    }
+
+    .author-name { font-weight: 600; font-size: 0.9rem; color: var(--forest); }
+    .author-loc { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── CONTACT / ORDER ──────────────────────────────────── */
+    .contact { background: var(--forest); }
+
+    .contact .section-heading { color: var(--white); }
+    .contact .section-sub { color: rgba(255,255,255,0.7); }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-top: 52px;
+      align-items: start;
+    }
+
+    .contact-info-card {
+      display: flex; flex-direction: column; gap: 20px;
+    }
+
+    .info-row {
+      display: flex; align-items: flex-start; gap: 16px;
+      background: rgba(255,255,255,0.07);
+      border-radius: var(--r-md);
+      padding: 18px 22px;
+    }
+
+    .info-icon {
+      width: 40px; height: 40px;
+      background: var(--gold);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .info-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .info-value {
+      color: var(--white);
+      font-size: 0.95rem;
+    }
+
+    /* Order form */
+    .order-form {
+      background: var(--white);
+      border-radius: var(--r-lg);
+      padding: 36px;
+    }
+
+    .form-title {
+      font-family: var(--display);
+      font-size: 1.4rem;
+      color: var(--forest);
+      margin-bottom: 6px;
+    }
+
+    .form-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 26px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .form-group.full { grid-column: span 2; }
+
+    label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--forest);
+      letter-spacing: 0.02em;
+    }
+
+    input, select, textarea {
+      font-family: var(--body);
+      font-size: 0.9rem;
+      color: var(--ink);
+      background: var(--parchment);
+      border: 1.5px solid var(--parchment);
+      border-radius: var(--r-sm);
+      padding: 11px 14px;
+      width: 100%;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--sage);
+      background: var(--white);
+    }
+
+    textarea { resize: vertical; min-height: 100px; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--forest);
+      color: var(--white);
+      border: none;
+      padding: 15px;
+      border-radius: var(--r-sm);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 8px;
+      font-family: var(--body);
+    }
+
+    .form-submit:hover { background: var(--sage); }
+
+    /* ── HOURS / MAP SECTION ─────────────────────────────── */
+    .hours-section {
+      background: var(--parchment);
+      padding: 64px 5vw;
+    }
+
+    .hours-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hours-card {
+      background: var(--white);
+      border-radius: var(--r-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .hours-card h3 {
+      font-family: var(--display);
+      font-size: 1.3rem;
+      color: var(--forest);
+      margin-bottom: 22px;
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--parchment);
+      font-size: 0.9rem;
+    }
+
+    .hours-row:last-child { border-bottom: none; }
+
+    .hours-day { color: var(--muted); }
+    .hours-time { font-weight: 600; color: var(--forest); }
+    .hours-closed { color: #c0392b; font-weight: 600; }
+
+    .open-now {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #27ae60;
+      background: rgba(39,174,96,0.1);
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-left: 10px;
+    }
+
+    .open-dot {
+      width: 7px; height: 7px;
+      background: #27ae60;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .map-placeholder {
+      background: var(--forest);
+      border-radius: var(--r-lg);
+      height: 100%;
+      min-height: 280px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 12px;
+      padding: 28px;
+      text-align: center;
+    }
+
+    .map-placeholder .map-icon { font-size: 48px; }
+    .map-placeholder h3 { color: var(--white); font-family: var(--display); font-size: 1.1rem; }
+    .map-placeholder p { color: rgba(255,255,255,0.65); font-size: 0.88rem; line-height: 1.55; }
+
+    .map-btn {
+      background: var(--gold);
+      color: var(--white);
+      padding: 11px 24px;
+      border-radius: var(--r-sm);
+      font-weight: 600;
+      font-size: 0.88rem;
+      display: inline-block;
+      margin-top: 8px;
+      transition: opacity 0.2s;
+    }
+    .map-btn:hover { opacity: 0.88; }
+
+    /* ── FOOTER ───────────────────────────────────────────── */
     footer {
+      background: var(--ink);
+      padding: 56px 5vw 32px;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand-name {
+      font-family: var(--display);
+      font-size: 1.4rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .footer-tagline {
+      font-family: var(--arabic);
+      color: var(--gold);
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+
+    .footer-desc {
+      font-size: 0.85rem;
+      line-height: 1.65;
+      max-width: 280px;
+    }
+
+    .footer-socials {
+      display: flex; gap: 12px; margin-top: 20px;
+    }
+
+    .social-btn {
+      width: 38px; height: 38px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+    .social-btn:hover { background: var(--gold); }
+
+    .footer-col h4 {
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 18px;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-col li a {
+      font-size: 0.87rem;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.2s;
+    }
+
+    .footer-col li a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p { font-size: 0.82rem; }
+
+    .halal-cert {
+      background: rgba(201,146,42,0.15);
+      border: 1px solid rgba(201,146,42,0.35);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── TOAST ────────────────────────────────────────────── */
+    .toast {
+      position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(120px);
+      background: var(--forest);
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: var(--r-md);
+      font-weight: 500;
+      font-size: 0.92rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      z-index: 999;
+      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* ── MOBILE NAV MENU ─────────────────────────────────── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: var(--forest);
+      z-index: 99;
+      padding: 24px 5vw;
+      flex-direction: column;
+      gap: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .mobile-menu a {
+      color: rgba(255,255,255,0.85);
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* ── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .hero {
+        grid-template-columns: 1fr;
         text-align: center;
-        padding: 15px;
-        background: #111;
-        color: white;
+        padding: 60px 6vw;
+      }
+
+      .hero-content { order: 2; }
+      .hero-visual { order: 1; margin-bottom: 40px; }
+      .hero-sub { margin: 0 auto 32px; }
+      .hero-actions { justify-content: center; }
+
+      .hero-image-container { width: 260px; height: 260px; font-size: 90px; }
+      .hero-stats { position: static; margin-top: 24px; }
+      .hero-badge { right: 10px; top: 0; }
+
+      .why-inner,
+      .contact-inner,
+      .hours-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+
+      .form-row { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: span 1; }
+
+      .hero::before { width: 100%; clip-path: none; height: 50%; top: auto; bottom: 0; opacity: 0.2; right: 0; }
     }
 
-    button {
-        background: #145c43;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        cursor: pointer;
-        border-radius: 5px;
+    @media (max-width: 580px) {
+      .footer-inner { grid-template-columns: 1fr; }
+      .hero-stats { flex-direction: column; gap: 14px; }
     }
-
-    button:hover {
-        background: #0f3d2e;
-    }
-</style>
+  </style>
 </head>
-
 <body>
 
-<header>
-    <h1>Zabiha Halal Meat Market</h1>
-    <p>Fresh • Halal • Trusted Quality Meat</p>
-</header>
-
-<nav>
-    <a href="#home">Home</a>
-    <a href="#products">Products</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+<!-- ═══ NAV ═══ -->
+<nav id="top">
+  <div class="nav-logo">
+    <div class="nav-logo-icon">☪</div>
+    <span class="nav-logo-text">Al-Barakah Halal Meats</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#products">Our Meats</a></li>
+    <li><a href="#process">Halal Process</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact" class="nav-cta">Order Now</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<section class="hero" id="home">
-    <h2>100% Zabiha Halal Meat</h2>
-    <p>Fresh beef, chicken, goat, lamb, and cow meat delivered with care</p>
-</section>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#products" onclick="toggleMenu()">Our Meats</a>
+  <a href="#process" onclick="toggleMenu()">Halal Process</a>
+  <a href="#why" onclick="toggleMenu()">Why Us</a>
+  <a href="#testimonials" onclick="toggleMenu()">Reviews</a>
+  <a href="#contact" onclick="toggleMenu()">Order Now</a>
+</div>
 
-<section class="section" id="products">
-    <h2>Our Products</h2>
-    <div class="products">
-
-        <div class="card">
-            <h3>Beef</h3>
-            <p>Fresh cut halal beef for daily cooking and BBQ.</p>
-            <button>Order Now</button>
-        </div>
-
-        <div class="card">
-            <h3>Chicken</h3>
-            <p>Farm fresh zabiha halal chicken, cleaned and packed.</p>
-            <button>Order Now</button>
-        </div>
-
-        <div class="card">
-            <h3>Lamb</h3>
-            <p>Soft, tender lamb meat perfect for curries and grills.</p>
-            <button>Order Now</button>
-        </div>
-
-        <div class="card">
-            <h3>Goat</h3>
-            <p>Premium goat meat for traditional dishes.</p>
-            <button>Order Now</button>
-        </div>
-
-        <div class="card">
-            <h3>Whole Cow</h3>
-            <p>Bulk orders available for events and families.</p>
-            <button>Order Now</button>
-        </div>
-
-    </div>
-</section>
-
-<section class="section" id="about">
-    <h2>About Us</h2>
-    <p>
-        We provide 100% Zabiha Halal meat, ensuring all slaughtering follows Islamic guidelines.
-        Our mission is to deliver fresh, clean, and ethically sourced meat to your family.
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيْم</p>
+    <h1 class="hero-heading">
+      Zabiha Halal Meat<br><em>You Can Trust</em>
+    </h1>
+    <p class="hero-sub">
+      Hand-slaughtered according to Islamic law. Fresh cuts of cow, goat, chicken, lamb, and more — sourced with care and delivered with integrity.
     </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">📦 Place an Order</a>
+      <a href="#products" class="btn-outline">View Our Meats</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-image-container">
+      🥩
+      <div class="hero-badge">100%<br>Certified<br>Halal</div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Years Serving</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Happy Families</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Zabiha</div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- ═══ TRUST BAR ═══ -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <div class="trust-icon">☪</div>
+    <span>Certified Zabiha Halal</span>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">🌿</div>
+    <span>Hand-Slaughtered</span>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">🌾</div>
+    <span>Humanely Raised Animals</span>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">❄</div>
+    <span>Fresh &amp; Never Frozen</span>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">🏠</div>
+    <span>Family-Owned Business</span>
+  </div>
+</div>
+
+<!-- ═══ PRODUCTS ═══ -->
+<section class="products" id="products">
+  <div class="centered">
+    <p class="section-label">What We Offer</p>
+    <h2 class="section-heading">Fresh Cuts for Every Table</h2>
+    <p class="section-sub">Every animal is hand-slaughtered by a trained Muslim with Bismillah — the way Allah intended. No exceptions.</p>
+  </div>
+
+  <div class="products-grid">
+
+    <div class="product-card">
+      <div class="product-img" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">
+        🐄
+        <span class="product-tag">Best Seller</span>
+      </div>
+      <div class="product-body">
+        <h3 class="product-name">Beef (Cow)</h3>
+        <p class="product-desc">Premium halal beef sourced from pasture-raised cattle. Rich flavor, tender cuts for every occasion.</p>
+        <div class="product-cuts">
+          <span class="cut-tag">Whole Animal</span>
+          <span class="cut-tag">Half &amp; Quarter</span>
+          <span class="cut-tag">Ribs</span>
+          <span class="cut-tag">Ground Beef</span>
+          <span class="cut-tag">Stew Cuts</span>
+          <span class="cut-tag">Steak Cuts</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img" style="background: linear-gradient(135deg, #fff8e1, #ffecb3);">🐐</div>
+      <div class="product-body">
+        <h3 class="product-name">Goat</h3>
+        <p class="product-desc">Tender, flavorful goat ideal for biryani, nihari, karahi, and slow-cooked family dishes.</p>
+        <div class="product-cuts">
+          <span class="cut-tag">Whole Goat</span>
+          <span class="cut-tag">Chops</span>
+          <span class="cut-tag">Shoulder</span>
+          <span class="cut-tag">Leg</span>
+          <span class="cut-tag">Bone-in</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">
+        🐔
+        <span class="product-tag">Fresh Daily</span>
+      </div>
+      <div class="product-body">
+        <h3 class="product-name">Chicken</h3>
+        <p class="product-desc">Fresh halal chicken slaughtered daily. Available whole or broken down to your preference.</p>
+        <div class="product-cuts">
+          <span class="cut-tag">Whole Chicken</span>
+          <span class="cut-tag">Breast</span>
+          <span class="cut-tag">Drumsticks</span>
+          <span class="cut-tag">Thighs</span>
+          <span class="cut-tag">Wings</span>
+          <span class="cut-tag">Boneless</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🐑</div>
+      <div class="product-body">
+        <h3 class="product-name">Lamb</h3>
+        <p class="product-desc">Delicate, tender lamb — perfect for Eid, special occasions, or a hearty weeknight meal.</p>
+        <div class="product-cuts">
+          <span class="cut-tag">Whole Lamb</span>
+          <span class="cut-tag">Rack of Lamb</span>
+          <span class="cut-tag">Shoulder</span>
+          <span class="cut-tag">Leg</span>
+          <span class="cut-tag">Chops</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9);">🐪</div>
+      <div class="product-body">
+        <h3 class="product-name">Camel (Seasonal)</h3>
+        <p class="product-desc">Available during Eid-ul-Adha and special occasions. Pre-order required. Ask for availability.</p>
+        <div class="product-cuts">
+          <span class="cut-tag">Whole</span>
+          <span class="cut-tag">By Share</span>
+          <span class="cut-tag">Pre-Order Only</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">🫀</div>
+      <div class="product-body">
+        <h3 class="product-name">Organ Meats</h3>
+        <p class="product-desc">Liver, heart, kidney, tongue — nutritious, traditional cuts with deep cultural roots.</p>
+        <div class="product-cuts">
+          <span class="cut-tag">Liver</span>
+          <span class="cut-tag">Heart</span>
+          <span class="cut-tag">Kidney</span>
+          <span class="cut-tag">Tongue</span>
+          <span class="cut-tag">Tripe</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ HALAL PROCESS ═══ -->
+<section class="process" id="process">
+  <div class="centered">
+    <p class="section-label">Our Commitment</p>
+    <h2 class="section-heading" style="color:var(--white)">What Makes It Truly Zabiha</h2>
+    <p class="section-sub" style="margin:0 auto 0;">Not all halal is created equal. Zabiha halal means every animal is hand-slaughtered by a Muslim — no shortcuts, no machines.</p>
+  </div>
+
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="step-number">01</div>
+      <div class="step-icon">🤲</div>
+      <h3 class="step-title">Bismillah Recited</h3>
+      <p class="step-text">A trained Muslim slaughterer recites the name of Allah before every single animal — this is the foundation of zabiha halal.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">02</div>
+      <div class="step-icon">🌿</div>
+      <h3 class="step-title">Humanely Raised</h3>
+      <p class="step-text">Animals are raised in humane conditions, free to graze and eat clean. Islam commands kindness to animals at every stage.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">03</div>
+      <div class="step-icon">⚡</div>
+      <h3 class="step-title">Swift, Hand-Cut</h3>
+      <p class="step-text">The cut is swift and precise with a sharp blade — minimizing suffering as commanded by the Prophet ﷺ.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">04</div>
+      <div class="step-icon">🩸</div>
+      <h3 class="step-title">Blood Fully Drained</h3>
+      <p class="step-text">Complete drainage of blood is required and ensured every time — a health and religious requirement of halal.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">05</div>
+      <div class="step-icon">✅</div>
+      <h3 class="step-title">No Cross-Contamination</h3>
+      <p class="step-text">Equipment, surfaces, and storage are kept strictly separate from any non-halal products.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">06</div>
+      <div class="step-icon">📦</div>
+      <h3 class="step-title">Fresh to Your Door</h3>
+      <p class="step-text">Packaged fresh and sealed with care. Pick up in-store or arrange local delivery — no long waits, no old stock.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY US ═══ -->
+<section class="why" id="why">
+  <div class="why-inner">
+    <div class="why-visual">
+      <div class="why-card">
+        <div class="why-card-icon">🕌</div>
+        <h4 class="why-card-title">A Muslim-Owned, Family Business</h4>
+        <p class="why-card-text">We don't just sell halal meat — we eat it too. Our family's name is behind every cut we sell. That accountability means everything to us.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">🔪</div>
+        <h4 class="why-card-title">Custom Cuts</h4>
+        <p class="why-card-text">Tell us exactly how you want it. We cut to order for your recipes and family size.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">📞</div>
+        <h4 class="why-card-title">Easy Pre-Orders</h4>
+        <p class="why-card-text">Call or fill our form to pre-order for Eid, weddings, and large gatherings.</p>
+      </div>
+    </div>
+
+    <div>
+      <p class="section-label">Why Families Choose Us</p>
+      <h2 class="section-heading">More Than a Meat Shop</h2>
+      <p class="section-sub">We've been serving our community with honesty and quality for over a decade. Here's what sets us apart.</p>
+
+      <ul class="why-list">
+        <li>
+          <div class="why-check">✓</div>
+          <div class="why-list-text">
+            <strong>Zabiha Guaranteed, Always</strong>
+            <span>Every single animal — no exceptions. We never mix machine-slaughtered meat.</span>
+          </div>
+        </li>
+        <li>
+          <div class="why-check">✓</div>
+          <div class="why-list-text">
+            <strong>Fresh, Never Frozen</strong>
+            <span>We slaughter to order. Your meat is as fresh as it gets.</span>
+          </div>
+        </li>
+        <li>
+          <div class="why-check">✓</div>
+          <div class="why-list-text">
+            <strong>Eid &amp; Qurbani Specialists</strong>
+            <span>We handle hundreds of Qurbani sacrifices with full documentation and shares available.</span>
+          </div>
+        </li>
+        <li>
+          <div class="why-check">✓</div>
+          <div class="why-list-text">
+            <strong>Bulk &amp; Wholesale Pricing</strong>
+            <span>Restaurants, mosques, and families ordering in bulk receive special pricing. Just ask.</span>
+          </div>
+        </li>
+        <li>
+          <div class="why-check">✓</div>
+          <div class="why-list-text">
+            <strong>Community First</strong>
+            <span>We donate meat to local food banks and support families in need during Ramadan and Eid.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="testimonials" id="testimonials">
+  <div class="centered">
+    <p class="section-label">Customer Reviews</p>
+    <h2 class="section-heading">What Our Community Says</h2>
+    <p class="section-sub">Alhamdulillah, our customers keep coming back — here's why.</p>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">I've been buying from them for 5 years. The quality is unmatched and I never have to question if it's truly zabiha. My family trusts no one else for our meat.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">👩</div>
+        <div>
+          <p class="author-name">Sister Fatima K.</p>
+          <p class="author-loc">Local Customer</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">I ordered a whole goat for Eid and they cut it exactly how I wanted — for biryani cuts. The freshness was incredible. Highly recommend for Qurbani!</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">👨</div>
+        <div>
+          <p class="author-name">Brother Ahmed S.</p>
+          <p class="author-loc">Eid Pre-Order Customer</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">As a restaurant owner, freshness and trust matter immensely. We've been sourcing our halal chicken and beef from them for 3 years. Never had a single complaint.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">🍽</div>
+        <div>
+          <p class="author-name">Malik's Restaurant</p>
+          <p class="author-loc">Wholesale Client</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT / ORDER ═══ -->
 <section class="contact" id="contact">
-    <h2>Contact Us</h2>
-    <p>Phone: (000) 000-0000</p>
-    <p>Email: halalmeat@example.com</p>
-    <p>Serving your local area with fresh halal meat daily</p>
+  <div class="centered">
+    <p class="section-label">Get in Touch</p>
+    <h2 class="section-heading" style="color:var(--white)">Place Your Order Today</h2>
+    <p class="section-sub" style="margin:0 auto">Call us, walk in, or fill the form below. We respond within a few hours.</p>
+  </div>
+
+  <div class="contact-inner">
+    <div class="contact-info-card">
+      <div class="info-row">
+        <div class="info-icon">📞</div>
+        <div>
+          <p class="info-label">Phone / WhatsApp</p>
+          <p class="info-value">(555) 123-4567</p>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">📧</div>
+        <div>
+          <p class="info-label">Email</p>
+          <p class="info-value">orders@albarakahmeats.com</p>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">📍</div>
+        <div>
+          <p class="info-label">Address</p>
+          <p class="info-value">1234 Main Street, Your City, State 00000</p>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">🕐</div>
+        <div>
+          <p class="info-label">Walk-In Hours</p>
+          <p class="info-value">Mon–Sat: 9 AM – 7 PM &nbsp;|&nbsp; Sun: 10 AM – 5 PM</p>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">🌙</div>
+        <div>
+          <p class="info-label">Special Occasions</p>
+          <p class="info-value">Eid / Qurbani / Weddings — pre-order 2 weeks ahead</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-form">
+      <h3 class="form-title">Send Us an Order Request</h3>
+      <p class="form-sub">We'll confirm your order and pricing within a few hours, In sha Allah.</p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" placeholder="Your name" />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone / WhatsApp</label>
+          <input type="tel" id="phone" placeholder="(555) 000-0000" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="you@email.com" />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="meat">Meat Type</label>
+          <select id="meat">
+            <option value="">Select meat…</option>
+            <option>Beef (Cow)</option>
+            <option>Goat</option>
+            <option>Chicken</option>
+            <option>Lamb</option>
+            <option>Camel (Seasonal)</option>
+            <option>Mixed / Multiple</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="occasion">Occasion</label>
+          <select id="occasion">
+            <option value="">Select…</option>
+            <option>Regular Purchase</option>
+            <option>Eid / Qurbani</option>
+            <option>Wedding / Event</option>
+            <option>Wholesale / Restaurant</option>
+            <option>Bulk Order</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="notes">Order Details &amp; Special Requests</label>
+        <textarea id="notes" placeholder="E.g. 10 lbs of goat, cut for biryani, boneless chicken breast 5 lbs…"></textarea>
+      </div>
+
+      <button class="form-submit" onclick="submitForm()">📦 Submit Order Request</button>
+    </div>
+  </div>
 </section>
 
+<!-- ═══ HOURS + MAP ═══ -->
+<div class="hours-section">
+  <div class="hours-inner">
+    <div class="hours-card">
+      <h3>
+        🕐 Store Hours
+        <span class="open-now"><span class="open-dot"></span> Open Now</span>
+      </h3>
+
+      <div class="hours-row">
+        <span class="hours-day">Monday</span>
+        <span class="hours-time">9:00 AM – 7:00 PM</span>
+      </div>
+      <div class="hours-row">
+        <span class="hours-day">Tuesday</span>
+        <span class="hours-time">9:00 AM – 7:00 PM</span>
+      </div>
+      <div class="hours-row">
+        <span class="hours-day">Wednesday</span>
+        <span class="hours-time">9:00 AM – 7:00 PM</span>
+      </div>
+      <div class="hours-row">
+        <span class="hours-day">Thursday</span>
+        <span class="hours-time">9:00 AM – 7:00 PM</span>
+      </div>
+      <div class="hours-row">
+        <span class="hours-day">Friday</span>
+        <span class="hours-time">9:00 AM – 1:00 PM, 2:30 – 7:00 PM</span>
+      </div>
+      <div class="hours-row">
+        <span class="hours-day">Saturday</span>
+        <span class="hours-time">9:00 AM – 7:00 PM</span>
+      </div>
+      <div class="hours-row">
+        <span class="hours-day">Sunday</span>
+        <span class="hours-time">10:00 AM – 5:00 PM</span>
+      </div>
+    </div>
+
+    <div class="map-placeholder">
+      <div class="map-icon">📍</div>
+      <h3>Find Us In-Store</h3>
+      <p>1234 Main Street<br>Your City, State 00000<br><br>Free parking available. Walk-ins welcome.</p>
+      <a href="https://maps.google.com" target="_blank" class="map-btn">Open in Google Maps →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
 <footer>
-    <p>&copy; 2026 Zabiha Halal Meat Market. All rights reserved.</p>
+  <div class="footer-inner">
+    <div>
+      <p class="footer-brand-name">Al-Barakah Halal Meats</p>
+      <p class="footer-tagline">البركة في الحلال</p>
+      <p class="footer-desc">Serving our community with honest, certified zabiha halal meat for over a decade. Family-owned and community-trusted.</p>
+      <div class="footer-socials">
+        <div class="social-btn" title="Facebook">📘</div>
+        <div class="social-btn" title="Instagram">📸</div>
+        <div class="social-btn" title="WhatsApp">💬</div>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Meats</h4>
+      <ul>
+        <li><a href="#products">Beef / Cow</a></li>
+        <li><a href="#products">Goat</a></li>
+        <li><a href="#products">Chicken</a></li>
+        <li><a href="#products">Lamb</a></li>
+        <li><a href="#products">Camel (Seasonal)</a></li>
+        <li><a href="#products">Organ Meats</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#contact">Custom Cuts</a></li>
+        <li><a href="#contact">Bulk / Wholesale</a></li>
+        <li><a href="#contact">Eid / Qurbani</a></li>
+        <li><a href="#contact">Wedding Orders</a></li>
+        <li><a href="#contact">Local Delivery</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:5551234567">(555) 123-4567</a></li>
+        <li><a href="mailto:orders@albarakahmeats.com">Email Us</a></li>
+        <li><a href="#contact">Order Form</a></li>
+        <li><a href="#">WhatsApp Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Al-Barakah Halal Meats. All rights reserved.</p>
+    <span class="halal-cert">☪ 100% ZABIHA HALAL CERTIFIED</span>
+  </div>
 </footer>
+
+<!-- ═══ TOAST ═══ -->
+<div class="toast" id="toast"></div>
+
+<script>
+  function toggleMenu() {
+    const m = document.getElementById('mobileMenu');
+    m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 4000);
+  }
+
+  function submitForm() {
+    const name = document.getElementById('fname').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const meat = document.getElementById('meat').value;
+
+    if (!name || !phone || !meat) {
+      showToast('⚠️ Please fill in your name, phone, and meat type.');
+      return;
+    }
+
+    showToast('✅ Order request sent! We\'ll contact you soon, In sha Allah.');
+
+    // Reset form
+    ['fname','phone','email','meat','occasion','notes'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.value = '';
+    });
+  }
+
+  // Sticky nav shadow on scroll
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.boxShadow =
+      window.scrollY > 10 ? '0 4px 24px rgba(0,0,0,0.3)' : '0 2px 16px rgba(0,0,0,0.25)';
+  });
+
+  // Intersection observer for fade-in cards
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.product-card, .process-step, .testimonial-card, .why-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
 
 </body>
 </html>
