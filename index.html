@@ -1,193 +1,65 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Site</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f1117; --surface: #1a1d27; --border: #2a2d3a;
+      --accent: #7c6cff; --text: #e8e8f0; --muted: #8888aa;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 10; }
+    .logo { font-weight: 700; font-size: 1.1rem; letter-spacing: -.02em; }
+    .logo span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav a { color: var(--muted); text-decoration: none; font-size: .9rem; transition: color .2s; }
+    nav a:hover { color: var(--text); }
+    .hero { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 5rem 1.5rem 3rem; gap: 1.5rem; }
+    .badge { display: inline-block; background: #7c6cff22; color: var(--accent); border: 1px solid #7c6cff55; padding: .35rem 1rem; border-radius: 999px; font-size: .8rem; font-weight: 500; letter-spacing: .04em; }
+    h1 { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.1; max-width: 700px; }
+    h1 em { font-style: normal; color: var(--accent); }
+    .sub { color: var(--muted); font-size: clamp(.95rem, 2vw, 1.15rem); max-width: 520px; line-height: 1.6; }
+    .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .btn { padding: .75rem 1.75rem; border-radius: 8px; font-size: .95rem; font-weight: 600; cursor: pointer; border: none; text-decoration: none; transition: opacity .2s, transform .15s; }
+    .btn:hover { opacity: .85; transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; padding: 3rem 2rem 4rem; max-width: 900px; margin: 0 auto; width: 100%; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: border-color .2s, transform .2s; }
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .card-icon { font-size: 1.6rem; margin-bottom: .75rem; }
+    .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: .4rem; }
+    .card p { color: var(--muted); font-size: .88rem; line-height: 1.55; }
+    footer { text-align: center; padding: 1.5rem; color: var(--muted); font-size: .8rem; border-top: 1px solid var(--border); }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;My Site&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>:root {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--bg:<span class="Apple-converted-space">      </span>#0f1117;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--surface: #1a1d27;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--border:<span class="Apple-converted-space">  </span>#2a2d3a;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--accent:<span class="Apple-converted-space">  </span>#7c6cff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--text:<span class="Apple-converted-space">    </span>#e8e8f0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--muted: <span class="Apple-converted-space">  </span>#8888aa;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: var(--bg);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>min-height: 100vh;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* ── NAV ── */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>nav {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 1.25rem 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: sticky;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>top: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: var(--bg);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>z-index: 10;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.logo { font-weight: 700; font-size: 1.1rem; letter-spacing: -.02em; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.logo span { color: var(--accent); }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>nav ul { list-style: none; display: flex; gap: 2rem; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>nav a<span class="Apple-converted-space">  </span>{ color: var(--muted); text-decoration: none; font-size: .9rem; transition: color .2s; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>nav a:hover { color: var(--text); }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* ── HERO ── */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>flex: 1;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 5rem 1.5rem 3rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 1.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.badge {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #7c6cff22;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #7c6cff55;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: .35rem 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: .8rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 500;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: .04em;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>h1 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: clamp(2rem, 6vw, 3.5rem);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 800;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: -.04em;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.1;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 700px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>h1 em { font-style: normal; color: var(--accent); }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.sub {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: clamp(.95rem, 2vw, 1.15rem);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 520px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.6;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.cta-row { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: .75rem 1.75rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: .95rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition: opacity .2s, transform .15s;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn:hover { opacity: .85; transform: translateY(-1px); }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn-primary { background: var(--accent); color: #fff; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn-ghost <span class="Apple-converted-space">  </span>{ background: transparent; color: var(--text); border: 1px solid var(--border); }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* ── CARDS ── */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.cards {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 1.25rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 3rem 2rem 4rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 900px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: var(--surface);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 1.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition: border-color .2s, transform .2s;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card:hover { border-color: var(--accent); transform: translateY(-2px); }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card-icon { font-size: 1.6rem; margin-bottom: .75rem; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card h3 <span class="Apple-converted-space">  </span>{ font-size: 1rem; font-weight: 700; margin-bottom: .4rem; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card p<span class="Apple-converted-space">    </span>{ color: var(--muted); font-size: .88rem; line-height: 1.55; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* ── FOOTER ── */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>footer {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 1.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: .8rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-top: 1px solid var(--border);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;nav&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="logo"&gt;my&lt;span&gt;site&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#"&gt;Projects&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/nav&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="hero"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="badge"&gt;✦ Available for work&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Hi, I build things for the &lt;em&gt;web&lt;/em&gt;&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="sub"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>Developer, creator, curious builder. This is my corner of the internet —</p>
-<p class="p1"><span class="Apple-converted-space">      </span>edit this page and make it yours.</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="cta-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="btn btn-primary" href="#"&gt;View Projects&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="btn btn-ghost" <span class="Apple-converted-space">  </span>href="#"&gt;Get in Touch&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="cards"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-icon"&gt;🛠️&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Projects&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;A collection of things I've built, broken, and rebuilt — from quick experiments to finished tools.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-icon"&gt;📝&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Writing&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Notes on what I'm learning. Short posts, long posts, whatever helps me think it through.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-icon"&gt;📬&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Contact&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Say hello. I'm always happy to talk about ideas, projects, or just interesting things on the internet.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>Built with HTML · Hosted on Cloudflare Pages · Edit me in &lt;code&gt;index.html&lt;/code&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+  <nav>
+    <div class="logo">my<span>site</span></div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <section class="hero">
+    <span class="badge">✦ Available for work</span>
+    <h1>Hi, I build things for the <em>web</em></h1>
+    <p class="sub">Developer, creator, curious builder. This is my corner of the internet — edit this page and make it yours.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#">View Projects</a>
+      <a class="btn btn-ghost" href="#">Get in Touch</a>
+    </div>
+  </section>
+  <section class="cards">
+    <div class="card"><div class="card-icon">🛠️</div><h3>Projects</h3><p>A collection of things I've built, broken, and rebuilt — from quick experiments to finished tools.</p></div>
+    <div class="card"><div class="card-icon">📝</div><h3>Writing</h3><p>Notes on what I'm learning. Short posts, long posts, whatever helps me think it through.</p></div>
+    <div class="card"><div class="card-icon">📬</div><h3>Contact</h3><p>Say hello. I'm always happy to talk about ideas, projects, or just interesting things on the internet.</p></div>
+  </section>
+  <footer>Built with HTML · Hosted on Cloudflare Pages · Edit me in index.html</footer>
 </body>
 </html>
